@@ -1,0 +1,47 @@
+﻿@model aim_sol.Models.Department
+@{
+ ViewData["Title"] = "Details";
+}
+<h1> Emplyee Details</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Details">
+       
+           @* <label>Employee Name  </label> <label>@Model.DepartmentId</label>*@
+          <div><label>Department Id:</label>     <label>@Model.DepartmentId</label></div>  
+           <div><label>Department Name:</label>   <label>@Model.DepartmentName</label></div>
+     
+        @*  <table>
+            @*  <thead>
+                  <tr><td>
+                      <th>
+                       Department Name 
+                      </th></td>
+                      <th>
+                        Employee Email
+                      </th>
+                  </tr>
+                 
+              </thead>
+              <tbody>
+                 @foreach (var e in Model.Employees)
+                        {
+                             <tr>
+                      <td>
+                          @e.EmpName
+                      </td>
+                       <td>
+                          @e.EmpEmail
+                      </td>
+                      @e.EmpSalary
+                  </tr>
+                        }
+              </tbody>
+          </table>*@
+     <a asp-action="Index">Back to List</a>
+     </form>
+    @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}
+

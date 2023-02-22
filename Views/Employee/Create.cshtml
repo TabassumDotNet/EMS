@@ -1,0 +1,49 @@
+﻿@model aim_sol.Models.Employee
+
+@{
+    ViewData["Title"] = "Create";
+}
+<h1>Add New Employees </h1>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        
+            <div class="form-group">
+                <label asp-for="EmpName" class="control-label"></label>
+                <input asp-for="EmpName" class="form-control" />
+                <span asp-validation-for="EmpName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpSalary" class="control-label"></label>
+                <input asp-for="EmpSalary" class="form-control" />
+                <span asp-validation-for="EmpSalary" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EmpEmail" class="control-label"></label>
+                <input asp-for="EmpEmail" class="form-control" />
+                <span asp-validation-for="EmpEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                 <select asp-for="DepartmentId" 
+         asp-items="@(new SelectList(ViewBag.Departments, nameof(Department.DepartmentId), nameof(Department.DepartmentName)))">
+        <option>Please select one</option>
+    </select>
+            </div>
+            @* <input type="submit" value="Create" class="btn btn-primary" *@
+
+            @*  <button type="submit" class="btn btn-primary">Submit</button>*@
+            <div class="form-group">
+
+                <button type="submit" class="btn btn-primary">Submit</button>|<a asp-action="Index">Back to List</a>
+            </div>
+        </form>
+        </div>
+        </div>
+
+        @section Scripts {
+            @{
+                await Html.RenderPartialAsync("_ValidationScriptsPartial");
+            }
+        }

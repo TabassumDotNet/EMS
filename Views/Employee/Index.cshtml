@@ -1,0 +1,75 @@
+﻿@model IEnumerable<aim_sol.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<h1>Employees List</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpName)
+            </th>
+            <th>
+               @Html.DisplayNameFor(model => model.EmpSalary)
+            </th>
+             <th>
+               @Html.DisplayNameFor(model => model.EmpEmail)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpName)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.EmpSalary)
+            </td>
+
+               <td>
+                @Html.DisplayFor(modelItem => item.EmpEmail)
+            </td>
+            <td>
+                @Html.ActionLink("Edit","Edit", new {EmpId= item.EmpId})
+              @*  @Html.ActionLink("Delete", "Delete", new {EmpName= item.EmpName})*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
